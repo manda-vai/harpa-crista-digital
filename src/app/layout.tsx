@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { getSearchIndex } from "@/lib/hinos";
+import { Header } from "@/components/Header";
+import { KeyboardShortcuts } from "@/components/KeyboardShortcuts";
+import { ServiceWorkerRegistration } from "@/components/ServiceWorkerRegistration";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -40,6 +44,20 @@ export const metadata: Metadata = {
     icon: "/icons/icon-192.svg",
     apple: "/icons/icon-192.svg",
   },
+  openGraph: {
+    title: "Harpa Cristã Digital",
+    description:
+      "Os 640 hinos da Harpa Cristã com busca, favoritos e modo offline.",
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Harpa Cristã Digital",
+  },
+  twitter: {
+    card: "summary",
+    title: "Harpa Cristã Digital",
+    description:
+      "Os 640 hinos da Harpa Cristã com busca, favoritos e modo offline.",
+  },
 };
 
 export default function RootLayout({
@@ -47,13 +65,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Carrega índice leve (numero + titulo + coro) pra busca no header
+  const searchIndex = getSearchIndex();
+
   return (
     <html lang="pt-BR" className={inter.variable}>
-      <body className="min-h-dvh antialiased">
+      <body className="flex min-h-dvh flex-col antialiased">
         <a href="#main" className="skip-link">
           Pular para o conteúdo
         </a>
-        {children}
+        <Header searchIndex={searchIndex} />
+        <div className="flex-1">{children}</div>
+        <ServiceWorkerRegistration />
+        <KeyboardShortcuts />
       </body>
     </html>
   );

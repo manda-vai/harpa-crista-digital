@@ -122,6 +122,25 @@ export function getTotalHinos(): number {
   return HINOS.length;
 }
 
+/**
+ * Índice leve para busca no header (enviado ao client).
+ * Inclui coro mas não os versos completos — pra ficar pequeno (~200KB).
+ * Pra busca com versos, use getAllHinos() na página /hinos.
+ */
+export interface HinoIndex {
+  numero: number;
+  titulo: string;
+  coro: string;
+}
+
+export function getSearchIndex(): HinoIndex[] {
+  return HINOS.map((h) => ({
+    numero: h.numero,
+    titulo: h.titulo,
+    coro: h.coro,
+  }));
+}
+
 /** Calcula o hino anterior (com wrap: 1 → 640) */
 export function getHinoAnterior(numero: number): number {
   return numero === 1 ? 640 : numero - 1;

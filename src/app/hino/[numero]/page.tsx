@@ -27,9 +27,26 @@ export async function generateMetadata({
     return { title: "Hino não encontrado" };
   }
   const h = getHinoByNumero(n);
+  const title = `${h.numero} - ${h.titulo}`;
+  const description = `Hino ${h.numero} da Harpa Cristã: ${h.titulo}. Leia com ajuste de fonte, tela cheia e favoritar offline.`;
+  const url = `https://harpa-crista-digital-two.vercel.app/hino/${h.numero}`;
   return {
-    title: `${h.numero} - ${h.titulo}`,
-    description: `Hino ${h.numero} da Harpa Cristã: ${h.titulo}`,
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      url,
+      siteName: "Harpa Cristã Digital",
+      locale: "pt_BR",
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
+    },
   };
 }
 
