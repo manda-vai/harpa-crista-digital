@@ -3,7 +3,7 @@ import { getAllHinos } from "@/lib/hinos";
 import { HinosList } from "@/components/HinosList";
 
 export const metadata = {
-  title: "Todos os 640 hinos · Harpa Cristã Digital",
+  title: "Todos os 640 hinos",
   description:
     "Lista completa dos 640 hinos da Harpa Cristã. Busque por título, verso ou palavra. Navegue, favorite e leia offline.",
 };

@@ -4,7 +4,6 @@ import { Heart } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Meus favoritos",
-  description: "Seus hinos favoritos salvos localmente no seu navegador.",
 };
 
 export default function FavoritosPage() {
