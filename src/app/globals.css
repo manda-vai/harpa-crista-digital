@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* ============================================================
+ * Design System — Harpa Cristã Digital
+ * Gerado por UXProMax + refinamento manual
+ * Stack: Tailwind CSS v4
+ * ============================================================ */
+
+@theme {
+  /* === Cores principais (Spiritual Purple + Warm Gold) === */
+  --color-primary: #7c3aed;        /* Roxo espiritual */
+  --color-primary-50: #faf5ff;
+  --color-primary-100: #f3e8ff;
+  --color-primary-200: #e9d5ff;
+  --color-primary-300: #d8b4fe;
+  --color-primary-400: #a78bfa;    /* Roxo claro (secondary) */
+  --color-primary-500: #8b5cf6;
+  --color-primary-600: #7c3aed;
+  --color-primary-700: #6d28d9;
+  --color-primary-800: #5b21b6;
+  --color-primary-900: #4c1d95;    /* Roxo profundo (text) */
+  --color-primary-950: #2e1065;
+
+  /* CTA - Warm Gold */
+  --color-cta: #ca8a04;            /* Dourado quente */
+  --color-cta-light: #facc15;
+  --color-cta-dark: #a16207;
+
+  /* Backgrounds */
+  --color-background: #faf5ff;     /* Off-white lilac */
+  --color-background-dark: #1a0f2e;
+
+  /* Texts */
+  --color-foreground: #4c1d95;     /* Deep purple (light mode) */
+  --color-foreground-dark: #f5f3ff;
+
+  /* Tipografia */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ============================================================
+ * Reset + Base
+ * ============================================================ */
+
+:root {
+  --background: var(--color-background);
+  --foreground: var(--color-foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--color-background-dark);
+    --foreground: var(--color-foreground-dark);
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+ * Acessibilidade — Focus visible global
+ * ============================================================ */
+
+*:focus-visible {
+  outline: 3px solid var(--color-cta);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 8px;
+  background: var(--color-cta);
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 8px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
