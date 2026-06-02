@@ -5,6 +5,7 @@ import { getSearchIndex } from "@/lib/hinos";
 import { Header } from "@/components/Header";
 import { KeyboardShortcuts } from "@/components/KeyboardShortcuts";
 import { ServiceWorkerRegistration } from "@/components/ServiceWorkerRegistration";
+import { FavoritesSync } from "@/components/FavoritesSync";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -77,6 +78,7 @@ export default function RootLayout({
         <Header searchIndex={searchIndex} />
         <div className="flex-1">{children}</div>
         <ServiceWorkerRegistration />
+        <FavoritesSync />
         <KeyboardShortcuts />
       </body>
     </html>

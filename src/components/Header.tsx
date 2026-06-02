@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun, BookOpen, Heart } from "lucide-react";
 import { SearchBox } from "./SearchBox";
+import { AuthButton } from "./AuthButton";
 import { useFavoritesCount } from "@/hooks/useFavorites";
 import type { HinoIndex } from "@/lib/hinos";
 
@@ -80,6 +81,10 @@ export function Header({ searchIndex }: HeaderProps) {
               )}
             </button>
           )}
+
+          <div className="ml-1 border-l border-purple-200 pl-2 dark:border-purple-800">
+            <AuthButton />
+          </div>
         </nav>
       </div>
     </header>
